@@ -4,10 +4,6 @@ import express, { NextFunction, Request, Response } from "express";
 import { router } from "./routes";
 import { AppError } from "./errors/AppError";
 
-interface IOptions {
-  host: string;
-}
-
 AppDataSource.setOptions({ host: "database" });
 
 AppDataSource.initialize()
