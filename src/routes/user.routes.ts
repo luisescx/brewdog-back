@@ -1,18 +1,33 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import ensureAuthenticated from "../middlewares/ensureAuthenticated";
+import { UsersController } from "../modules/users/controllers/UsersController";
 
 const userRoutes = Router();
 
-// const personController = new PersonsController();
+const usersController = new UsersController();
 
-userRoutes.get("/", (request: Request, response: Response) => {
-  console.log("routes");
-  return response.status(201).json("teste");
-});
+userRoutes.get("/list", ensureAuthenticated, usersController.listUsers);
 
-// userRoutes.get("/delete/:id", personController.deletePerson);
+userRoutes.get("/getById/:id", ensureAuthenticated, usersController.getById);
 
-// userRoutes.post("/create", personController.createPerson);
+userRoutes.get(
+  "/getByUsername/:username",
+  ensureAuthenticated,
+  usersController.getByUsername
+);
 
-// userRoutes.post("/update", personController.updatePerson);
+userRoutes.delete(
+  "/delete/:id",
+  ensureAuthenticated,
+  usersController.deleteUser
+);
+
+userRoutes.post("/create", usersController.createUser);
+
+userRoutes.patch(
+  "/update/:id",
+  ensureAuthenticated,
+  usersController.updateUser
+);
 
 export { userRoutes };
