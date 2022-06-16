@@ -28,6 +28,9 @@ class UserUseCase {
     if (!username) {
       throw new AppError("Username is mandatory");
     }
+    if (/\s/.test(username)) {
+      throw new AppError("Username cannot contain spaces");
+    }
     if (!password) {
       throw new AppError("Password is mandatory");
     }
