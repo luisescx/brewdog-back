@@ -36,6 +36,7 @@ class AuthenticateUserUseCase {
     const token = sign({}, auth.secret, {
       subject: user.id,
       expiresIn: "1d",
+      algorithm: "HS512",
     });
 
     return {
