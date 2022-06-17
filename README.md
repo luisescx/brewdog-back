@@ -15,8 +15,8 @@
 
 ### Observações importantes:
 
-- O Projeto usa `Docker` para executar a aplicação e o banco de dados em um contâiner, é preciso ter o docker instalado na sua máquina.
-- O `postgres` que será executado dentro do contâiner roda na porta `5432`, a mesma porta padrão do `postgres`. Se estiver executando o postgres localmente, pare o serviço do postgres local para que possa ser executado no contâiner na porta `5432`.
+- O Projeto usa `Docker` para executar a aplicação e o banco de dados em um container, é preciso ter o docker instalado na sua máquina.
+- O `postgres` que será executado dentro do container roda na porta `5432`, a mesma porta padrão do `postgres`. Se estiver executando o postgres localmente, pare o serviço do postgres local para que possa ser executado no container na porta `5432`.
 
 ### Como executar:
 
