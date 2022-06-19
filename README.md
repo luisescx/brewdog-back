@@ -22,7 +22,7 @@
 
 - Clonar o projeto e executar o comando `yarn` na pasta raiz.
 - Após instalar as depêndencias e com o `docker` rodando, executar o comando `docker compose up`. Esse comando irá subir o projeto e o banco de dados.
-- Em outro terminal, na pasta raiz do projeto, executar o comando `yarn migration:run` para criar a entidade `users` no banco de dados.
+- `É necessário rodar as migrations para atualizar o banco de dados:` em outro terminal, na pasta raiz do projeto, executar o comando `yarn migration:run` para criar a entidade `users` no banco de dados.
 
 ### Rotas:
 
