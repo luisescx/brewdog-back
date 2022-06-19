@@ -40,7 +40,7 @@
 
 ---
 
-- http://localhost:3333/users/sessions
+- http://localhost:3333/sessions
 - Rota não autenticada para login do usuário, `retorna o token que deve ser usado nas rotas autenticadas`
 - Método POST
 - Body JSON
