@@ -1,9 +1,9 @@
-# API de authenticação
+# Authentication API
 
-- A API faz um CRUD de cadastro de usuários.
-- Rotas autenticadas.
+- The API does a CRUD of users.
+- Authenticated routes.
 
-## Tecnologias utilizadas:
+## Technologies
 
 - NodeJs
 - TypeScript
@@ -13,23 +13,23 @@
 - Bcryptjs
 - Jsonwebtoken
 
-### Observações importantes:
+### Remarks:
 
-- O Projeto usa `Docker` para executar a aplicação e o banco de dados em um container, é preciso ter o docker instalado na sua máquina.
-- O `postgres` que será executado dentro do container roda na porta `5432`, a mesma porta padrão do `postgres`. Se estiver executando o postgres localmente, pare o serviço do postgres local para que possa ser executado no container na porta `5432`.
+- The project uses `Docker` to execute the application and the database in a container, you must have docker installed in your machine.
+- The `postgres` in the container runs in the `5432` port, the same port from the default `postgres`, if you are running postgres locally, stop the postgres service. 
 
-### Como executar:
+### How to run:
 
-- Clonar o projeto e executar o comando `yarn` na pasta raiz.
-- Após instalar as depêndencias e com o `docker` rodando, executar o comando `docker compose up`. Esse comando irá subir o projeto e o banco de dados.
-- `É necessário rodar as migrations para atualizar o banco de dados:` em outro terminal, na pasta raiz do projeto, executar o comando `yarn migration:run` para criar a entidade `users` no banco de dados.
+- Clone the project and execute `yarn` in the root folder.
+- Execute `docker compose up`.
+- Run the migrations to update the database with `yarn migration:run`. 
 
 ### Rotas:
 
 - http://localhost:3333/users/create
-- Rota não autenticada para criação do usuário
-- Método POST
-- Body JSON
+- Unauthenticated route for user creation
+- POST Method
+- JSON Body
 
 ```bash
 {
@@ -41,9 +41,9 @@
 ---
 
 - http://localhost:3333/sessions
-- Rota não autenticada para login do usuário, `retorna o token que deve ser usado nas rotas autenticadas`
-- Método POST
-- Body JSON
+- Unauthenticated route for user login, `returns the token that needs to be used in authenticated routes`
+- POST Method
+- JSON Body
 
 ```bash
 {
@@ -55,21 +55,21 @@
 ---
 
 - http://localhost:3333/users/getById/:id
-- Rota autenticada que retorna o usuário através de um ID, `não esquecer de usar o token`.
-- Método GET
+- Authenticated route that returns the user, `needs token`
+- GET Method
 
 ---
 
 - http://localhost:3333/users/getByUsername/:username
-- Rota autenticada que retorna o usuário através de um username, `não esquecer de usar o token`.
-- Método GET
+- Authenticated route that returns the user by its username, `needs token`
+- GET Method
 
 ---
 
 - http://localhost:3333/users/update/:id
-- Rota autenticada para atualizar do usuário através do ID, `não esquecer de usar o token`
-- Método PATCH
-- Body JSON
+- Authenticated route that updates the user by its ID, `needs token`
+- PATCH method
+- JSON body
 
 ```bash
 {
@@ -81,11 +81,11 @@
 ---
 
 - http://localhost:3333/users/delete/:id
-- Rota autenticada para excluir um usuário através do ID, `não esquecer de usar o token`
+- Authenticated route to delete the user by its ID, `need token`
 - Método DELETE
 
 ---
 
 - http://localhost:3333/users/list
-- Rota autenticada para listar todos os usuário através, `não esquecer de usar o token`
-- Método GET
+- Authenticated route that list all users, `needs token`
+- GET method
